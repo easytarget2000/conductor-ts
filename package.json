@@ -1,0 +1,29 @@
+{
+    "name": "bounce-conductor",
+    "version": "0.0.1",
+    "description": "Adds BPM-aware callbacks to synchronise code with musical tempos.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/easytarget2000/conductor-ts.git"
+    },
+    "keywords": [
+        "bpm",
+        "music",
+        "beats",
+        "tempo"
+    ],
+    "author": "mitch@easy-target.eu",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/easytarget2000/conductor-ts/issues"
+    },
+    "homepage": "https://github.com/easytarget2000/conductor-ts#readme"
+}
