@@ -1,1 +1,1 @@
-export {tap, update} from './conductor'
+export { tap, update } from './conductor';
