@@ -8,5 +8,5 @@ export enum BeatInterval {
   FourWhole = 64,
   EightWhole = 128,
   SixteenWhole = 256,
-  ThirstyTwoWhole = 512,
+  ThirtyTwoWhole = 512,
 }
