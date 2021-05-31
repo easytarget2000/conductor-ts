@@ -1,7 +1,7 @@
-export interface BeatIntervalUpdate {
+export type BeatIntervalUpdate = {
     
-    numberOfIntervals: number;
+    numberOfIntervals: number,
 
-    didChange: boolean;
+    didChange: boolean
 
 }
