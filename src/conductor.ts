@@ -1,16 +1,20 @@
-import { BeatInterval } from "./beat-interval";
+import { BeatInterval } from ".";
 
 export class Conductor {
 
 	bpm: number = 150;
 
-	private startMillis: number = this.nowMillis();
+	private startMillis: bigint;
 
-	private numberOfAcknowledgedTicks = 0;
+	private numberOfAcknowledgedTicks = BigInt(0);
 
 	private tickLengthMillis: number;
 
-	private static INTERVALS: [BeatInterval] = [
+	private intervalNumbers: [BeatInterval: bigint];
+
+	private timeSource: TimeSource;
+
+	private static INTERVALS: BeatInterval[] = [
 		BeatInterval.Sixteenth,
 		BeatInterval.Eigth,
 		BeatInterval.Quarter,
@@ -21,22 +25,25 @@ export class Conductor {
 		BeatInterval.EightWhole,
 		BeatInterval.SixteenWhole,
 		BeatInterval.ThirtyTwoWhole
-	]
+	];
 
 	private static MILLIS_PER_MINUTE = 60_000;
 
+	constructor(timeSource: TimeSource = new SystemTimeSource) {
+		this.timeSource = timeSource;
+	}
+
 	start(): void {
-		this.intervalNumbers = Conductor.INTERVALS.map { it to 0 }.toMap();
-		this.startMillis = this.nowMillis();
+		this.intervalNumbers = Object.assign(
+			{},
+			...Conductor.INTERVALS.map((x) => ({[x]: 0}))
+			);
+		this.startMillis = this.timeSource.currentMillis();
 		this.initTickLengthMillis();
 	}
 
-	update(): Map<BeatInterval, number> {
-		return new Map()
-	}
-
-	private nowMillis(): number {
-		return Date.now();
+	update(): Map<BeatInterval, bigint> {
+		return new Map();
 	}
 
 	private initTickLengthMillis() {
