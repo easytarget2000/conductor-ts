@@ -82,8 +82,9 @@ export class Conductor {
 			const newIntervalNumbers = Object.assign(
 				{},
 				...Conductor.INTERVALS.map(
-					(interval, numberOfTicks) => ({
-						[interval]: (numberOfAcknowledgedTicks / numberOfTicks)
+					(interval) => ({
+						[interval]:
+						(numberOfAcknowledgedTicks / Number(ticksForInterval(interval)))
 					})
 				)
 			);
@@ -99,15 +100,13 @@ export class Conductor {
 
 		var updates = new Map<BeatInterval, BeatIntervalUpdate>();
 
-		this.intervalNumbers.forEach(
-			(numberOfIntervals, interval) => {
-				const didChange = changes[interval];
-				updates[interval] = {
-					numberOfIntervals: numberOfIntervals,
-					didChange: didChange
-				};
-			}
-		);
+		Object.keys(this.intervalNumbers).forEach(interval => {
+			const didChange = changes[interval];
+			updates[interval] = {
+				numberOfIntervals: this.intervalNumbers[interval],
+				didChange: didChange
+			};
+		});
 
 		return updates;
 	}
