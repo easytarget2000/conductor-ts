@@ -4,5 +4,12 @@
 // });
 
 import { Conductor } from '../conductor';
+// import { SystemTimeSource } from '../sytem-time-source';
 
-test("", )
+test(
+    "Start",
+    () => {
+        const conductor = new Conductor();
+        conductor.start();
+    }
+);

@@ -1,7 +1,7 @@
-class SystemTimeSource implements TimeSource {
+export class SystemTimeSource implements TimeSource {
 
     get currentMillis(): bigint {
-        return BigInt(Date.now);
+        return BigInt(Date.now());
     }
 
 }

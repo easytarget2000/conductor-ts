@@ -1,4 +1,5 @@
 import { BeatInterval, BeatIntervalUpdate } from ".";
+import { SystemTimeSource } from "./sytem-time-source";
 
 export class Conductor {
 
@@ -31,7 +32,7 @@ export class Conductor {
 
 	private static MILLIS_PER_MINUTE = 60_000;
 
-	constructor(timeSource: TimeSource = new SystemTimeSource) {
+	constructor(timeSource: TimeSource = new SystemTimeSource()) {
 		this.timeSource = timeSource;
 	}
 
