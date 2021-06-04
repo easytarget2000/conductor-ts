@@ -1,5 +1,5 @@
 interface TimeSource {
 
-    currentMillis(): bigint;
+    currentMillis: bigint;
 
 }
